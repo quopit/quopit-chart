@@ -1,0 +1,80 @@
+apiVersion: v1
+entries:
+  quopit:
+  - annotations:
+      artifacthub.io/category: database
+      artifacthub.io/keywords: quopit, database, application, scalable, open-source
+      artifacthub.io/links: |
+        - name: source
+          url: https://github.com/quopit/quopit
+        - name: helm
+          url: https://github.com/quopit/quopit/tree/main/deploy/helm/quopit
+      artifacthub.io/quality: production
+    apiVersion: v2
+    appVersion: 2.2.2
+    created: "2026-07-20T03:18:14.009873874-03:00"
+    dependencies:
+    - alias: quopit-backend-asgi
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - alias: quopit-backend-wsgi
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - alias: quopit-frontend
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - alias: quopit-celery-beat-worker
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - alias: quopit-celery-export-worker
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - alias: quopit-celery-worker
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - alias: quopit-celery-flower
+      condition: quopit-celery-flower.enabled
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - alias: quopit-embeddings
+      condition: quopit-embeddings.enabled
+      name: quopit
+      repository: file://charts/quopit-common
+      version: 1.0.52
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.5.x
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.5.x
+    - condition: minio.enabled
+      name: minio
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.6.18
+    - alias: caddy
+      condition: caddy.enabled
+      name: caddy-ingress-controller
+      repository: https://caddyserver.github.io/ingress
+      version: 1.1.0
+    description: The open platform to create scalable databases and applications without
+      coding.
+    digest: 95fd92719eec365c51d83d30ab5dd43642686b13cd0091f00d40be2b788716cd
+    home: https://github.com/quopit/quopit/tree/main/deploy/helm/quopit
+    icon: https://raw.githubusercontent.com/quopit/quopit/main/web-frontend/modules/core/server/public/img/favicon_192.png
+    name: quopit
+    sources:
+    - https://github.com/quopit/quopit
+    type: application
+    urls:
+    - https://quopit.github.io/quopit-chart/quopit-1.0.52.tgz
+    version: 1.0.52
+generated: "2026-07-20T03:18:13.998031848-03:00"
